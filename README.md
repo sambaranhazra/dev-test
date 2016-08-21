@@ -81,3 +81,11 @@ Also send us the source code to your solution. We use GitHub, so if you put your
 We will evaluate your source code as well as the functionality of the program: Does it run, how does it handle errors, how well-engineered is the architecture etc.
 Thank you!
 
+
+How to create executable jar
+============================
+
+Go to sambaran-dev-test folder.
+Execute the command : mvn clean compile assembly:single
+The executable jar will be created under target folder
+use the command java -jar GoEuroTest.jar <CITY_NAME> to create the csv file under target folder.
