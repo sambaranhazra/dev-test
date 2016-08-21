@@ -6,21 +6,28 @@ import com.google.gson.annotations.SerializedName;
  * Created by sambaran on 21/8/16.
  */
 public class Location {
-    private int _id;
+    @SerializedName("_id")
+    private Integer id;
     private String name;
     private String type;
-    private GeoPosition geo_position;
+    @SerializedName("geo_position")
+    private GeoPosition geoPosition;
 
-    public GeoPosition getGeo_position() {
-        return geo_position;
+    public GeoPosition getGeoPosition() {
+        return geoPosition;
     }
 
-    public void setGeo_position(GeoPosition geo_position) {
-        this.geo_position = geo_position;
+    public void setGeoPosition(GeoPosition geoPosition) {
+        this.geoPosition = geoPosition;
     }
 
-    public int get_Id() {
-        return _id;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    public Integer getId() {
+        return id;
 
     }
 
@@ -41,24 +48,5 @@ public class Location {
     }
 
 
-    public class GeoPosition {
-        private double latitude;
-        private double longitude;
 
-        public double getLatitude() {
-            return latitude;
-        }
-
-        public void setLatitude(double latitude) {
-            this.latitude = latitude;
-        }
-
-        public double getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(double longitude) {
-            this.longitude = longitude;
-        }
-    }
 }
