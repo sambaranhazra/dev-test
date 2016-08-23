@@ -2,6 +2,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.sambaran.GeoPosition;
+import org.sambaran.ILocationToFileConverter;
 import org.sambaran.Location;
 import org.sambaran.LocationToCSVConverter;
 
@@ -41,39 +42,39 @@ public class LocationToCSVConverterTest {
 
     @Test
     public void testLocationToCSV() throws Exception {
-        LocationToCSVConverter locationToCSVConverter = new LocationToCSVConverter();
+        ILocationToFileConverter ILocationToFileConverter = new LocationToCSVConverter();
 
-        String csvString = locationToCSVConverter.createCSVString(new Location[]{firstLocation});
+        String csvString = ILocationToFileConverter.createCSVString(new Location[]{firstLocation});
         Assert.assertEquals("12345,Bangalore,City,23.56,88.34", csvString);
     }
 
     @Test
     public void testLocationToCSVMultiLocations() throws Exception {
         Location[] locations = {firstLocation, secondLocation};
-        LocationToCSVConverter locationToCSVConverter = new LocationToCSVConverter();
-        String csvString = locationToCSVConverter.createCSVString(locations);
+        ILocationToFileConverter ILocationToFileConverter = new LocationToCSVConverter();
+        String csvString = ILocationToFileConverter.createCSVString(locations);
         Assert.assertEquals("12345,Bangalore,City,23.56,88.34\n23456,Bangalore,Airport,23.5634,88.3412", csvString);
     }
 
     @Test
     public void testLocationToCSVWithSomeMissing() throws Exception {
-        LocationToCSVConverter locationToCSVConverter = new LocationToCSVConverter();
-        String csvString = locationToCSVConverter.createCSVString(new Location[]{partialMissingLocation});
+        ILocationToFileConverter ILocationToFileConverter = new LocationToCSVConverter();
+        String csvString = ILocationToFileConverter.createCSVString(new Location[]{partialMissingLocation});
         Assert.assertEquals("1234,Unknown Place,N/A,,", csvString);
 
     }
 
     @Test
     public void testLocationToCSVWithAllMissing() throws Exception {
-        LocationToCSVConverter locationToCSVConverter = new LocationToCSVConverter();
-        String csvString = locationToCSVConverter.createCSVString(new Location[]{allMissingLocation});
+        ILocationToFileConverter ILocationToFileConverter = new LocationToCSVConverter();
+        String csvString = ILocationToFileConverter.createCSVString(new Location[]{allMissingLocation});
         Assert.assertEquals(",,,,", csvString);
     }
 
     @Test
     public void testLocationToCSVWithNull() throws Exception {
-        LocationToCSVConverter locationToCSVConverter = new LocationToCSVConverter();
-        String csvString = locationToCSVConverter.createCSVString(null);
+        ILocationToFileConverter ILocationToFileConverter = new LocationToCSVConverter();
+        String csvString = ILocationToFileConverter.createCSVString(null);
         Assert.assertEquals("", csvString);
     }
 }

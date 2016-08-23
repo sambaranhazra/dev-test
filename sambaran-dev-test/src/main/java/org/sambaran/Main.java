@@ -1,7 +1,5 @@
 package org.sambaran;
 
-import sun.net.www.http.HttpClient;
-
 import java.io.*;
 import java.net.URL;
 
@@ -20,9 +18,9 @@ public class Main {
                 String jsonString = getJsonObjectFromURL(cityName);
                 JsonToLocationConverter jsonToLocationConverter = new JsonToLocationConverter();
                 Location[] locations = jsonToLocationConverter.convert(jsonString);
-                LocationToCSVConverter locationToCSVConverter = new LocationToCSVConverter();
+                ILocationToFileConverter ILocationToFileConverter = new LocationToCSVConverter();
                 PrintWriter printWriter = new PrintWriter(cityName + "_details.csv", "UTF-8");
-                printWriter.append(locationToCSVConverter.createCSVString(locations));
+                printWriter.append(ILocationToFileConverter.createCSVString(locations));
                 printWriter.close();
             } catch (Exception e) {
             }

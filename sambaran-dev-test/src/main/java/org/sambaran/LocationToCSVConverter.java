@@ -3,7 +3,7 @@ package org.sambaran;
 /**
  * Created by sambaran on 21/8/16.
  */
-public class LocationToCSVConverter {
+public class LocationToCSVConverter implements ILocationToFileConverter {
     public String createCSVString(Location[] locations) {
         StringBuffer sb = new StringBuffer();
         if (locations != null) {
